@@ -43,6 +43,6 @@ jobs:
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
-          image-tag: ${{ needs.semantic-release-dry.outputs.version }}
+          image-tag: ${{ needs.semantic-release.outputs.version }}
       - name: Output Tags
         run: echo "Tag is ${{steps.dockerpublish.output.sha-tag}}"
