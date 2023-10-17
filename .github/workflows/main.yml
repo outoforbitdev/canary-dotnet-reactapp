@@ -24,7 +24,7 @@ jobs:
         uses: outoforbitdev/action-semantic-release@v1.2.2
         id: semanticrelease
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.RELEASE_TOKEN }}
       - name: Output version
         run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
   docker-publish:
