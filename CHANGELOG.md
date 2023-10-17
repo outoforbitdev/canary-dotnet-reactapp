@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.0...v1.0.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* use correct output for docker publish ([4976c24](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/4976c24010564a5c545ee080c5ea20f1ae339740))
+
 # 1.0.0 (2023-10-17)
 
 
