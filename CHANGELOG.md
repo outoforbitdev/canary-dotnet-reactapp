@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.1...v1.0.2) (2023-10-17)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 3 to 4 ([#10](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/10)) ([3b2df49](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/3b2df49c0c90f886676c5f1bb1ac7c235b4fc2d2))
+
 ## [1.0.1](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.0...v1.0.1) (2023-10-17)
 
 
