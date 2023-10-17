@@ -1,0 +1,1 @@
+FROM outoforbitdev/dotnet-reactapp
