@@ -17,7 +17,7 @@ jobs:
       version: ${{steps.semanticrelease.outputs.version}}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Semantic Release
@@ -35,7 +35,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Docker Publish
         uses: outoforbitdev/action-docker-publish@v1.0.5
         id: dockerpublish
