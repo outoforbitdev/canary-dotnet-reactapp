@@ -23,7 +23,7 @@ jobs:
       - name: Test Build
         run: docker build .
       - name: Test Release
-        uses: outoforbitdev/action-semantic-release@v1.2.2
+        uses: outoforbitdev/action-semantic-release@v1.3.3
         id: semanticrelease
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
