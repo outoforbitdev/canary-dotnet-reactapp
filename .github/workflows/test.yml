@@ -35,7 +35,7 @@ jobs:
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
-          image-tag: ${{ steps.semanticrelease.outputs.next-version }}
+          image-tag: 'exampletag'
           dry-run: true
       - name: Latest version
         run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
