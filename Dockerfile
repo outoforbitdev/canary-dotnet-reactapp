@@ -1,1 +1,1 @@
-FROM outoforbitdev/dotnet-reactapp:1.0.0
+FROM outoforbitdev/node:2.0.1
