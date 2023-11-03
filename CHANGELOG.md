@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.2...v1.0.3) (2023-11-03)
+
+
+### Bug Fixes
+
+* empty commit to trigger release ([#21](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/21)) ([c314b4d](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/c314b4dfd0b9cd3aa336d94049d265286c690974))
+
 ## [1.0.2](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.1...v1.0.2) (2023-10-17)
 
 
