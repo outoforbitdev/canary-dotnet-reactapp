@@ -1,5 +1,5 @@
-name: Test
-run-name: Running Tests
+name: Test App
+permissions: read-all
 on:
   pull_request:
     types: 
@@ -11,22 +11,31 @@ on:
       - beta
       - dev
       - staging
-permissions:
-  contents: read
 jobs:
-  Test:
+  testimage:
     runs-on: ubuntu-latest
-    name: Run Tests
+    name: Test Docker Image
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Test Build
-        run: docker build .
+      - name: Test Docker Image
+        uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
+        with:
+          test-command: sh ./tests.sh
       - name: Test Release
-        uses: outoforbitdev/action-semantic-release@v1.3.3
+        uses: outoforbitdev/action-semantic-release@v1.3.5
         id: semanticrelease
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: true
+      - name: Test Docker Publish
+        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.3
+        id: dockerpublish
+        with:
+          docker-username: ${{ secrets.DOCKER_USERNAME }}
+          docker-token: ${{ secrets.DOCKER_TOKEN }}
+          image-name: ${{ vars.IMAGE_NAME }}
+          image-tag: ${{ steps.semanticrelease.outputs.next-version }}
           dry-run: true
       - name: Latest version
         run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"

@@ -1,5 +1,5 @@
-name: Release
-run-name: Releasing
+name: Release App
+permissions: read-all
 on:
   push:
     branches:
@@ -8,20 +8,34 @@ on:
       - dev
       - staging
 jobs:
+  test-image:
+    runs-on: ubuntu-latest
+    name: Test docker image
+    outputs:
+      success: $${{steps.testimage.outputs.success}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test Docker Image
+        id: testimage
+        uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
+        with:
+          test-command: sh ./tests.sh
   semantic-release:
     runs-on: ubuntu-latest
-    name: Semantic Release
-    permissions:
-      contents: write
+    name: Release
+    needs: test-image
+    if: ${{needs.test-image.outputs.success}}
     outputs:
-      version: ${{steps.semanticrelease.outputs.version}}
+      version: ${{steps.semanticrelease.outputs.next-version}}
+      versionReleased: ${{steps.semanticrelease.outputs.versionReleased}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Semantic Release
-        uses: outoforbitdev/action-semantic-release@v1.3.3
+        uses: outoforbitdev/action-semantic-release@v1.3.5
         id: semanticrelease
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
@@ -29,15 +43,14 @@ jobs:
         run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
   docker-publish:
     runs-on: ubuntu-latest
-    name: Docker Publish
+    name: Publish image
     needs: semantic-release
-    permissions:
-      contents: read
+    if: ${{needs.semantic-release.outputs.versionReleased}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Docker Publish
-        uses: outoforbitdev/action-docker-publish@v1.1.2
+        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.3
         id: dockerpublish
         with:
           docker-username: ${{ secrets.DOCKER_USERNAME }}
