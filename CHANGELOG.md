@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.3...v1.0.4) (2023-11-03)
+
+
+### Bug Fixes
+
+* bump action-semantic-release 1.3.6 ([#22](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/22)) ([e56e1e4](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/e56e1e4114e9555b7d874fd5eaddc4e6f1201e5c))
+
 ## [1.0.3](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.2...v1.0.3) (2023-11-03)
 
 
