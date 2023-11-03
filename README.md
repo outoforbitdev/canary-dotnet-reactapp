@@ -23,3 +23,4 @@
 Canary application for `oodreacttemplate`. Uses the following components:
 * [`action-semantic-release`](https://github.com/outoforbitdev/action-semantic-release)
 * [`action-docker-publish`](https://github.com/outoforbitdev/action-docker-publish)
+* [`action-docker-test`](https://github.com/outoforbitdev/action-docker-test)
