@@ -29,7 +29,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           dry-run: true
       - name: Test Docker Publish
-        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.7
+        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
         id: dockerpublish
         with:
           docker-username: ${{ vars.DOCKER_USERNAME }}
