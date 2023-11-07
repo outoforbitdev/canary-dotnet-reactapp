@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.5...v1.0.6) (2023-11-07)
+
+
+### Bug Fixes
+
+* bump action-docker-publish 1.2.0-staging.7 ([#27](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/27)) ([c596c43](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/c596c4391dcab1a595c934881a562880ee71e4de))
+
 ## [1.0.5](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.4...v1.0.5) (2023-11-07)
 
 
