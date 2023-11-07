@@ -50,10 +50,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Docker Publish
-        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.6
+        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.7
         id: dockerpublish
         with:
-          docker-username: ${{ secrets.DOCKER_USERNAME }}
+          docker-username: ${{ vars.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
           image-tag: ${{ needs.semantic-release.outputs.version }}
