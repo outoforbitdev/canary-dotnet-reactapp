@@ -35,10 +35,11 @@ jobs:
         with:
           persist-credentials: false
       - name: Semantic Release
-        uses: outoforbitdev/action-semantic-release@v1.3.6
+        uses: outoforbitdev/action-semantic-release@v1.4.0
         id: semanticrelease
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
+          skip-changelog: ${{ github.ref_name != 'main' }}
       - name: Output version
         run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
   docker-publish:
