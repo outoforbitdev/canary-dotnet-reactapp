@@ -23,7 +23,7 @@ jobs:
         with:
           test-command: sh ./tests.sh
       - name: Test Release
-        uses: outoforbitdev/action-semantic-release@v1.3.6
+        uses: outoforbitdev/action-semantic-release@v1.4.1
         id: semanticrelease
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
