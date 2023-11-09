@@ -40,8 +40,12 @@ jobs:
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
           skip-changelog: ${{ github.ref_name != 'main' }}
-      - name: Output version
-        run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"
+      - name: Version Summaries
+        env:
+          LAST_VERSION: ${{ steps.semanticrelease.outputs.last-version }}
+          NEXT_VERSION: ${{ steps.semanticrelease.outputs.next-version }}
+          VERSION_RELEASED: ${{ steps.semanticrelease.outputs.version-released}}
+        run: echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY; echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY
   docker-publish:
     runs-on: ubuntu-latest
     name: Publish image
