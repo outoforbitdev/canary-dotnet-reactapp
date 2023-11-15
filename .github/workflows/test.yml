@@ -6,13 +6,8 @@ on:
       - opened
       - reopened
       - synchronize
-    branches:
-      - main
-      - beta
-      - dev
-      - staging
 jobs:
-  testimage:
+  test:
     runs-on: ubuntu-latest
     name: Test Docker Image
     steps:
@@ -22,20 +17,18 @@ jobs:
         uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
         with:
           test-command: sh ./tests.sh
-      - name: Test Release
-        uses: outoforbitdev/action-semantic-release@v1.4.2
-        id: semanticrelease
+      - name: Publish Release
+        uses: outoforbitdev/action-semantic-release@v1.4.3-staging.1
+        id: semantic-release
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          dry-run: true
-      - name: Test Docker Publish
+          github-token: ${{ secrets.RELEASE_TOKEN }}
+          skip-changelog: ${{ github.ref_name != 'main' }}
+      - name: Publish Image
         uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
-        id: dockerpublish
+        id: docker-publish
         with:
           docker-username: ${{ vars.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
           image-tag: 'exampletag'
           dry-run: true
-      - name: Latest version
-        run: echo "Latest version is ${{ steps.semanticrelease.outputs.version}}"

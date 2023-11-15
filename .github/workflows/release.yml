@@ -8,59 +8,48 @@ on:
       - dev
       - staging
 jobs:
-  test-image:
+  test:
     runs-on: ubuntu-latest
-    name: Test docker image
+    name: Test Docker Image
     outputs:
-      success: $${{steps.testimage.outputs.success}}
+      success: $${{steps.test-image.outputs.success}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Test Docker Image
-        id: testimage
+        id: test-image
         uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
         with:
           test-command: sh ./tests.sh
-  semantic-release:
+  release:
     runs-on: ubuntu-latest
-    name: Release
-    needs: test-image
-    if: ${{needs.test-image.outputs.success}}
-    outputs:
-      version: ${{steps.semanticrelease.outputs.next-version}}
-      version-released: ${{steps.semanticrelease.outputs.version-released}}
+    name: Release Image
+    needs: test
+    if: ${{needs.test.outputs.success}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Semantic Release
-        uses: outoforbitdev/action-semantic-release@v1.4.2
-        id: semanticrelease
+      - name: Publish Release
+        uses: outoforbitdev/action-semantic-release@v1.4.3-staging.1
+        id: semantic-release
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
           skip-changelog: ${{ github.ref_name != 'main' }}
-      - name: Version Summaries
+      - name: Summarize Versions
         env:
-          LAST_VERSION: ${{ steps.semanticrelease.outputs.last-version }}
-          NEXT_VERSION: ${{ steps.semanticrelease.outputs.next-version }}
-          VERSION_RELEASED: ${{ steps.semanticrelease.outputs.version-released}}
-        run: echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY; echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY
-  docker-publish:
-    runs-on: ubuntu-latest
-    name: Publish image
-    needs: semantic-release
-    if: ${{needs.semantic-release.outputs.version-released}}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Docker Publish
+          LAST_VERSION: ${{ steps.semantic-release.outputs.last-version }}
+          NEXT_VERSION: ${{ steps.semantic-release.outputs.next-version }}
+          VERSION_RELEASED: ${{ steps.semantic-release.outputs.version-released}}
+        run: echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY; echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Version released - $VERSION_RELEASED" >> $GITHUB_STEP_SUMMARY
+      - name: Publish Image
         uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
-        id: dockerpublish
+        id: docker-publish
         with:
           docker-username: ${{ vars.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
-          image-tag: ${{ needs.semantic-release.outputs.version }}
+          image-tag: ${{ steps.semantic-release.outputs.version }}
       - name: Output Tags
-        run: echo "Tag is ${{steps.dockerpublish.output.sha-tag}}"
+        run: echo "Tag is ${{steps.docker-publish.output.sha-tag}}"
