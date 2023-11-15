@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test Docker Image
     outputs:
-      success: $${{steps.test-image.outputs.success}}
+      success: ${{ steps.test-image.outputs.success }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Release Image
     needs: test
-    if: ${{needs.test.outputs.success}}
+    if: ${{ needs.test.outputs.success }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,10 +46,11 @@ jobs:
       - name: Publish Image
         uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
         id: docker-publish
+        if: ${{ steps.semantic-release.outputs.version-released }}
         with:
           docker-username: ${{ vars.DOCKER_USERNAME }}
           docker-token: ${{ secrets.DOCKER_TOKEN }}
           image-name: ${{ vars.IMAGE_NAME }}
-          image-tag: ${{ steps.semantic-release.outputs.version }}
+          image-tag: ${{ steps.semantic-release.outputs.next-version }}
       - name: Output Tags
         run: echo "Tag is ${{steps.docker-publish.output.sha-tag}}"
