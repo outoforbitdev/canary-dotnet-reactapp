@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.8...v1.1.0) (2023-11-15)
+
+
+### Features
+
+* add commitlint ([#38](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/38)) ([af4a14b](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/af4a14b804fe63d320c17f83d7bedb67d9bf7744))
+
 ## [1.0.8](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.7...v1.0.8) (2023-11-15)
 
 
