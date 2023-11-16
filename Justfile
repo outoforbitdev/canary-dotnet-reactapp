@@ -10,4 +10,4 @@ rebuild-staging:
     git fetch && git checkout -b staging origin/main
 
 lint:
-    npx prettier . --write
+    yarn prettier . --write
