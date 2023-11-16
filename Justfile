@@ -1,5 +1,6 @@
 install:
     yarn install
+    brew install yamllint
 
 rebuild-staging:
     git fetch
@@ -10,4 +11,11 @@ rebuild-staging:
     git fetch && git checkout -b staging origin/main
 
 lint:
+    # lint Dockerfile
+    docker run --rm -i hadolint/hadolint:fcbd01791c9251d83f2486e61ecaf41ee700a766-debian-arm64 < Dockerfile
+    # lint markdown
+    npx markdownlint-cli2 --fix "**/*.md"
+    # prettier all files
     yarn prettier . --write
+    # lint yaml. This goes after prettier because it doesn't actually fix anything.
+    yamllint .

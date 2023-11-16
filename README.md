@@ -28,3 +28,7 @@ Canary application for `oodreacttemplate`. Uses the following components:
 - [`action-docker-test`](https://github.com/outoforbitdev/action-docker-test)
 - [commitlint](https://commitlint.js.org/#/)
 - [prettier](https://prettier.io/)
+- Linters ([chosen from this list](https://github.com/caramelomartins/awesome-linters))
+- [hadolint](https://github.com/hadolint/hadolint)
+- [markdownlint](https://github.com/DavidAnson/markdownlint)
+  - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
