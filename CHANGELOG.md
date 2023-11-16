@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.0...v1.1.1) (2023-11-16)
+
+
+### Bug Fixes
+
+* add linters ([#41](https://github.com/outoforbitdev/canary-dotnet-reactapp/issues/41)) ([ad18141](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/ad18141ace81c3d8510ef553a4e26c789e36b2d5))
+
 # [1.1.0](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.0.8...v1.1.0) (2023-11-15)
 
 
