@@ -41,8 +41,13 @@ jobs:
         env:
           LAST_VERSION: ${{ steps.semantic-release.outputs.last-version }}
           NEXT_VERSION: ${{ steps.semantic-release.outputs.next-version }}
-          VERSION_RELEASED: ${{ steps.semantic-release.outputs.version-released}}
-        run: echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY; echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY; echo "* Version released - $VERSION_RELEASED" >> $GITHUB_STEP_SUMMARY
+          VERSION_RELEASED: >-
+            ${{ steps.semantic-release.outputs.version-released}}
+        run: >-
+          echo "### Version Summaries" >> $GITHUB_STEP_SUMMARY;
+          echo "* Last version - $LAST_VERSION" >> $GITHUB_STEP_SUMMARY;
+          echo "* Next version - $NEXT_VERSION" >> $GITHUB_STEP_SUMMARY;
+          echo "* Version released - $VERSION_RELEASED" >> $GITHUB_STEP_SUMMARY
       - name: Publish Image
         uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
         id: docker-publish
@@ -53,4 +58,4 @@ jobs:
           image-name: ${{ vars.IMAGE_NAME }}
           image-tag: ${{ steps.semantic-release.outputs.next-version }}
       - name: Output Tags
-        run: echo "Tag is ${{steps.docker-publish.output.sha-tag}}"
+        run: echo "Tag is ${{steps.docker-publish.outputs.sha-tag}}"

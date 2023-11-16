@@ -1,4 +1,5 @@
 # canary-dotnet-reactapp
+
 <p align="center">
   <!-- <a href="https://github.com/outoforbitdev/canary-dotnet-reactapp/discussions">
     <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Join%20the%20community-on%20GitHub%20Discussions-blue">
@@ -21,6 +22,14 @@
 </p>
 
 Canary application for `oodreacttemplate`. Uses the following components:
-* [`action-semantic-release`](https://github.com/outoforbitdev/action-semantic-release)
-* [`action-docker-publish`](https://github.com/outoforbitdev/action-docker-publish)
-* [`action-docker-test`](https://github.com/outoforbitdev/action-docker-test)
+
+- [`action-semantic-release`](https://github.com/outoforbitdev/action-semantic-release)
+- [`action-docker-publish`](https://github.com/outoforbitdev/action-docker-publish)
+- [`action-docker-test`](https://github.com/outoforbitdev/action-docker-test)
+- [commitlint](https://commitlint.js.org/#/)
+- [prettier](https://prettier.io/)
+- Linters ([chosen from this list](https://github.com/caramelomartins/awesome-linters))
+  - [hadolint](https://github.com/hadolint/hadolint)
+  - [markdownlint](https://github.com/DavidAnson/markdownlint)
+    - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
+  - [yamllint](https://yamllint.readthedocs.io/en/stable/index.html)

@@ -1,14 +1,24 @@
 {
+  "name": "canary-dotnet-reactapp",
+  "repository": "https://github.com/outoforbitdev/canary-dotnet-reactapp.git",
+  "author": "Jay Mirecki <outoforbitdev@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
     "commitlint": "^18.4.1",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "markdownlint": "^0.32.1",
+    "markdownlint-cli2": "^0.10.0",
+    "prettier": "3.1.0"
   },
-  "name": "canary-dotnet-reactapp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/outoforbitdev/canary-dotnet-reactapp.git",
-  "author": "Jay Mirecki <jarett.mirecki@gmail.com>",
-  "license": "MIT"
+  "markdownlint-cli2": {
+    "ignores": [
+      "node_modules",
+      "CHANGELOG.md"
+    ],
+    "config": {
+      "no-inline-html": false
+    }
+  }
 }
