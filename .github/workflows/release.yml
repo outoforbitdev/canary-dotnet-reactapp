@@ -58,4 +58,4 @@ jobs:
           image-name: ${{ vars.IMAGE_NAME }}
           image-tag: ${{ steps.semantic-release.outputs.next-version }}
       - name: Output Tags
-        run: echo "Tag is ${{steps.docker-publish.output.sha-tag}}"
+        run: echo "Tag is ${{steps.docker-publish.outputs.sha-tag}}"
