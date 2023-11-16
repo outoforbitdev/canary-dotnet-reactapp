@@ -3,12 +3,11 @@
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
     "commitlint": "^18.4.1",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "prettier": "3.1.0"
   },
   "name": "canary-dotnet-reactapp",
-  "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/outoforbitdev/canary-dotnet-reactapp.git",
-  "author": "Jay Mirecki <jarett.mirecki@gmail.com>",
+  "author": "Jay Mirecki <outoforbitdev@gmail.com>",
   "license": "MIT"
 }
