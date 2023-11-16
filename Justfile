@@ -16,6 +16,6 @@ lint:
     # lint markdown
     npx markdownlint-cli2 --fix "**/*.md"
     # prettier all files
-    yarn prettier . --write
+    yarn prettier . --write --config ./.linters/config/.prettierrc --ignore-path ./.linters/config/.prettierignore
     # lint yaml. This goes after prettier because it doesn't actually fix anything.
-    yamllint .
+    yamllint -c ./.linters/config/.yamllint.yml .
