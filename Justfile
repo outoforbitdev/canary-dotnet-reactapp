@@ -5,10 +5,11 @@ install:
 rebuild-staging:
     git fetch
     git push origin --delete staging
-    git branch -d -r origin/staging
+    git branch -d staging
     git checkout main
     git pull
     git fetch && git checkout -b staging origin/main
+    git push origin staging
 
 lint:
     # lint Dockerfile
