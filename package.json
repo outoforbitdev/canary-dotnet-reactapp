@@ -5,7 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
-    "@commitlint/config-conventional": "^18.4.0",
+    "@commitlint/config-conventional": "^18.4.2",
     "commitlint": "^18.4.1",
     "husky": "^8.0.3",
     "markdownlint": "^0.32.1",
