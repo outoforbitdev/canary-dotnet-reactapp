@@ -6,7 +6,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
-    "commitlint": "^18.4.1",
+    "commitlint": "^18.4.2",
     "husky": "^8.0.3",
     "markdownlint": "^0.32.1",
     "markdownlint-cli2": "^0.10.0",
