@@ -17,18 +17,3 @@ jobs:
         uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
         with:
           test-command: sh ./tests.sh
-      - name: Publish Release
-        uses: outoforbitdev/action-semantic-release@v1.4.3-staging.2
-        id: semantic-release
-        with:
-          github-token: ${{ secrets.RELEASE_TOKEN }}
-          skip-changelog: ${{ github.ref_name != 'main' }}
-      - name: Publish Image
-        uses: outoforbitdev/action-docker-publish@v1.2.0-staging.8
-        id: docker-publish
-        with:
-          docker-username: ${{ vars.DOCKER_USERNAME }}
-          docker-token: ${{ secrets.DOCKER_TOKEN }}
-          image-name: ${{ vars.IMAGE_NAME }}
-          image-tag: "exampletag"
-          dry-run: true
