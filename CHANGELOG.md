@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.2...v1.1.3) (2023-11-21)
+
+
+### Bug Fixes
+
+* bump markdownlint-cli2 0.11.0 ([eeedacf](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/eeedacfeee22270f15f958b4f8aaf1fe7653d573))
+
 ## [1.1.2](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.1...v1.1.2) (2023-11-19)
 
 
