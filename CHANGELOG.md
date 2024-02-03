@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.3...v1.2.0) (2024-02-03)
+
+
+### Features
+
+* upgrade parent to new node image ([5593cfb](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/5593cfb16f57febed4023a0c58ba6bb135999028))
+
 ## [1.1.3](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.2...v1.1.3) (2023-11-21)
 
 
