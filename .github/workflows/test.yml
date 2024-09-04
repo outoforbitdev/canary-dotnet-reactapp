@@ -10,10 +10,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Test Docker Image
+    outputs:
+      success: ${{ steps.test-image.outputs.success }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Test Docker Image
-        uses: outoforbitdev/action-docker-test@v1.0.0-staging.1
+        id: test-image
+        uses: outoforbitdev/action-docker-test@v0.0.2
         with:
           test-command: sh ./tests.sh
