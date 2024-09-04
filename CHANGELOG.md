@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.2.0...v1.2.1) (2024-09-04)
+
+
+### Bug Fixes
+
+* **deps:** bump dependencies ([c6f4891](https://github.com/outoforbitdev/canary-dotnet-reactapp/commit/c6f4891aa76173d18156a6b6533510e6248f253a))
+
 # [1.2.0](https://github.com/outoforbitdev/canary-dotnet-reactapp/compare/v1.1.3...v1.2.0) (2024-02-03)
 
 
