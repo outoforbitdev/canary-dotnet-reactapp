@@ -26,6 +26,8 @@ jobs:
     name: Release Image
     needs: test
     if: ${{ needs.test.outputs.success }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,7 +37,7 @@ jobs:
         uses: outoforbitdev/action-semantic-release@v1.6.2
         id: semantic-release
         with:
-          github-token: ${{ secrets.RELEASE_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-changelog: ${{ github.ref_name != 'main' }}
       - name: Summarize Versions
         env:
